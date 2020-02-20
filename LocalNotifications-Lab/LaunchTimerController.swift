@@ -20,10 +20,17 @@ class LaunchTimerController: UIViewController {
     
     weak var delegate: LaunchTimerControllerDelegate?
     
-    private var timeInterval: TimeInterval = Date().timeIntervalSinceNow
+    private var timeInterval: TimeInterval = Date().timeIntervalSinceNow + 0.00
     
     public var totalSecs = 0.0
     
+    public var hourSecs = 0.0
+    
+    public var minSecs = 0.0
+    
+    public var secs = 0.0
+    
+    public var countdownString = "N/A"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +43,7 @@ class LaunchTimerController: UIViewController {
         
         let content = UNMutableNotificationContent()
         content.title = titleTextField.text ?? "No Title Given."
-        content.body = "Body for content"
+        content.body = countdownString
         content.subtitle = "Local Notifications Rock"
         content.sound = .default
         
@@ -127,14 +134,33 @@ extension LaunchTimerController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
        
+        
         switch component {
         case 0:
-            totalSecs += Double(row) * 3600
+            hourSecs = Double(row) * 3600
         case 1:
-            totalSecs += Double(row) * 60
+            minSecs = Double(row) * 60
         default:
-            totalSecs += Double(row)
+            secs = Double(row)
+            
         }
+        
+        totalSecs = hourSecs + minSecs + secs
+        
+        countdownString = totalSecs.asString(style: .full)
+        
         print(totalSecs)
+        print(totalSecs.asString(style: .full))
     }
+}
+
+
+extension Double {
+  func asString(style: DateComponentsFormatter.UnitsStyle) -> String {
+    let formatter = DateComponentsFormatter()
+    formatter.allowedUnits = [.hour, .minute, .second, .nanosecond]
+    formatter.unitsStyle = style
+    guard let formattedString = formatter.string(from: self) else { return "" }
+    return formattedString
+  }
 }

@@ -94,6 +94,25 @@ extension NotificationsTableController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            removeNotification(atIndexPath: indexPath)
+        }
+    }
+    
+    private func removeNotification(atIndexPath indexPath: IndexPath) {
+        
+        let notification = notifications[indexPath.row]
+        let identifier = notification.identifier
+        
+        center.removePendingNotificationRequests(withIdentifiers: [identifier])
+        
+        notifications.remove(at: indexPath.row)
+        
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        
+    }
+    
 }
 
 extension NotificationsTableController: UNUserNotificationCenterDelegate {
