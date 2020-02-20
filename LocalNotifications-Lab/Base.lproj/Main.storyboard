@@ -63,7 +63,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="EpD-ic-8A9" id="dmO-VE-Jzr"/>
+                        <outlet property="tableView" destination="EpD-ic-8A9" id="Yf6-Vf-5e5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -73,7 +73,7 @@
         <!--Create Notifications-->
         <scene sceneID="tlQ-dv-YsS">
             <objects>
-                <viewController storyboardIdentifier="CreateNotificationViewController" id="crD-Cj-UbK" customClass="LaunchTimerController" customModule="LocalNotifications_Lab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LaunchTimerController" id="crD-Cj-UbK" customClass="LaunchTimerController" customModule="LocalNotifications_Lab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QD1-8O-LLH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,35 +83,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULy-iu-khF">
-                                <rect key="frame" x="0.0" y="150" width="414" height="216"/>
-                                <connections>
-                                    <action selector="datePickerChanged:" destination="crD-Cj-UbK" eventType="valueChanged" id="bEh-pT-9Z6"/>
-                                </connections>
-                            </datePicker>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jpa-ry-vo3">
+                                <rect key="frame" x="0.0" y="130" width="414" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ULy-iu-khF" firstAttribute="trailing" secondItem="Nsr-qQ-dOx" secondAttribute="trailing" id="IlL-Dy-m4i"/>
-                            <constraint firstItem="ULy-iu-khF" firstAttribute="leading" secondItem="Nsr-qQ-dOx" secondAttribute="leading" id="LKi-qS-FPm"/>
+                            <constraint firstItem="jpa-ry-vo3" firstAttribute="trailing" secondItem="Nsr-qQ-dOx" secondAttribute="trailing" id="Ad5-AD-LIc"/>
+                            <constraint firstItem="jpa-ry-vo3" firstAttribute="top" secondItem="28o-9f-CpP" secondAttribute="bottom" constant="20" id="C6W-aS-cnA"/>
                             <constraint firstItem="28o-9f-CpP" firstAttribute="top" secondItem="Nsr-qQ-dOx" secondAttribute="top" constant="20" id="WjT-w3-dZ8"/>
-                            <constraint firstItem="ULy-iu-khF" firstAttribute="top" secondItem="28o-9f-CpP" secondAttribute="bottom" constant="40" id="gHc-X5-yV5"/>
+                            <constraint firstItem="jpa-ry-vo3" firstAttribute="leading" secondItem="Nsr-qQ-dOx" secondAttribute="leading" id="aaw-qv-L62"/>
                             <constraint firstItem="Nsr-qQ-dOx" firstAttribute="trailing" secondItem="28o-9f-CpP" secondAttribute="trailing" constant="20" id="gL2-oi-38n"/>
                             <constraint firstItem="28o-9f-CpP" firstAttribute="leading" secondItem="Nsr-qQ-dOx" secondAttribute="leading" constant="20" id="vhY-ar-n5b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nsr-qQ-dOx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Notifications" id="abz-xW-dLK">
-                        <barButtonItem key="rightBarButtonItem" title="Launch" id="fIo-cO-rHO">
-                            <connections>
-                                <action selector="doneButtonPressed:" destination="crD-Cj-UbK" id="TLE-xI-bj5"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Launch" id="fIo-cO-rHO"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="datePicker" destination="ULy-iu-khF" id="Qus-1b-ZEu"/>
-                        <outlet property="titleTextField" destination="28o-9f-CpP" id="93a-pB-XIG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vik-7w-oLl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
