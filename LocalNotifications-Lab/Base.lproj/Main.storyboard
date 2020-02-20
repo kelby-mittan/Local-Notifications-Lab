@@ -99,8 +99,16 @@
                         <viewLayoutGuide key="safeArea" id="Nsr-qQ-dOx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Notifications" id="abz-xW-dLK">
-                        <barButtonItem key="rightBarButtonItem" title="Launch" id="fIo-cO-rHO"/>
+                        <barButtonItem key="rightBarButtonItem" title="Launch" id="fIo-cO-rHO">
+                            <connections>
+                                <action selector="launchTimerPressed:" destination="crD-Cj-UbK" id="5SR-aq-fCk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="pickerView" destination="jpa-ry-vo3" id="rj4-3B-Ey4"/>
+                        <outlet property="titleTextField" destination="28o-9f-CpP" id="3r1-d0-rzB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vik-7w-oLl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

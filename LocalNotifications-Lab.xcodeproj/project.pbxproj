@@ -16,6 +16,8 @@
 		02732C8B23FF0777000C1D0B /* LocalNotifications_LabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02732C8A23FF0777000C1D0B /* LocalNotifications_LabTests.swift */; };
 		02732C9623FF08CE000C1D0B /* LaunchTimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02732C9523FF08CE000C1D0B /* LaunchTimerController.swift */; };
 		02732C9823FF08FE000C1D0B /* PendingNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02732C9723FF08FE000C1D0B /* PendingNotifications.swift */; };
+		02732C9A23FF1ECC000C1D0B /* warpedClock2.png in Resources */ = {isa = PBXBuildFile; fileRef = 02732C9923FF1ECC000C1D0B /* warpedClock2.png */; };
+		02732C9C23FF247C000C1D0B /* pursuit-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 02732C9B23FF247C000C1D0B /* pursuit-logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		02732C8C23FF0777000C1D0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02732C9523FF08CE000C1D0B /* LaunchTimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTimerController.swift; sourceTree = "<group>"; };
 		02732C9723FF08FE000C1D0B /* PendingNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingNotifications.swift; sourceTree = "<group>"; };
+		02732C9923FF1ECC000C1D0B /* warpedClock2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warpedClock2.png; sourceTree = "<group>"; };
+		02732C9B23FF247C000C1D0B /* pursuit-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pursuit-logo.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				02732C7523FF0773000C1D0B /* SceneDelegate.swift */,
 				02732C7723FF0773000C1D0B /* NotificationsTableController.swift */,
 				02732C9523FF08CE000C1D0B /* LaunchTimerController.swift */,
+				02732C9923FF1ECC000C1D0B /* warpedClock2.png */,
+				02732C9B23FF247C000C1D0B /* pursuit-logo.png */,
 				02732C9723FF08FE000C1D0B /* PendingNotifications.swift */,
 				02732C7923FF0773000C1D0B /* Main.storyboard */,
 				02732C7C23FF0777000C1D0B /* Assets.xcassets */,
@@ -186,6 +192,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02732C9A23FF1ECC000C1D0B /* warpedClock2.png in Resources */,
+				02732C9C23FF247C000C1D0B /* pursuit-logo.png in Resources */,
 				02732C8023FF0777000C1D0B /* LaunchScreen.storyboard in Resources */,
 				02732C7D23FF0777000C1D0B /* Assets.xcassets in Resources */,
 				02732C7B23FF0773000C1D0B /* Main.storyboard in Resources */,

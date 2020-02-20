@@ -25,11 +25,33 @@ class NotificationsTableController: UIViewController {
         }
     }
     
+    private var refreshControl: UIRefreshControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        configureRefreshControl()
         checkForNotificationAuthorization()
+        loadNotifications()
+        center.delegate = self
+    }
+    
+    private func configureRefreshControl() {
+        refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(loadNotifications), for: .valueChanged)
+    }
+    
+    @objc private func loadNotifications() {
+        pendingNotification.getPendingNotifications { (requests) in
+            self.notifications = requests
+            
+            // stop the refresh control from animating and remove from the UI
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
+        }
     }
 
     private func checkForNotificationAuthorization() {
@@ -60,14 +82,23 @@ class NotificationsTableController: UIViewController {
 
 extension NotificationsTableController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return notifications.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notificationCell", for: indexPath)
         
+        let notification = notifications[indexPath.row]
+        cell.textLabel?.text = notification.content.title
+        cell.detailTextLabel?.text = notification.content.body
         return cell
     }
     
-    
+}
+
+extension NotificationsTableController: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        completionHandler(.alert)
+    }
 }
