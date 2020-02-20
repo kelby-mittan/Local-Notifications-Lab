@@ -20,7 +20,7 @@ class LaunchTimerController: UIViewController {
     
     weak var delegate: LaunchTimerControllerDelegate?
     
-    private var timeInterval: TimeInterval = Date().timeIntervalSinceNow + 0.00
+    private var timeInterval: TimeInterval = Date().timeIntervalSinceNow + 0.05
     
     public var totalSecs = 0.0
     
